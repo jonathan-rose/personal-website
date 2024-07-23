@@ -5,14 +5,25 @@
    [personal-website.components :as comps]
    ))
 
-(defn main-panel []
+(defn home []
+   [:p "Home page"])
+ 
+(defn about []
+   [:p "About page"])
+ 
+(defn contact []
+   [:p "Contact page"])
+ 
+(defn games []
+   [:p "Games page"])
+
+(defn main []
   (let [current-view @(re-frame/subscribe [:current-view])]
-    [:div 
+    [:div.main
      [comps/sidebar]
-     (case current-view
-       "home" [comps/home]
-       "about" [comps/about]
-       [comps/home])
-     [:h1
-      "Hello from " current-view]
-     ]))
+     [:div.main-content (case current-view
+                          "home" [home]
+                          "about" [about]
+                          "contact" [contact]
+                          "games" [games]
+                          [home])]]))

@@ -1,20 +1,17 @@
 (ns personal-website.components 
-  (:require [re-frame.core :as re-frame]))
+  (:require [re-frame.core :as re-frame]
+            [clojure.string :as string]))
+
+(defn make-link [link-name]
+  (let [string-name (str (string/lower-case link-name))]
+    [:a {:on-click #(re-frame/dispatch [:set-view string-name])} link-name]))
 
 (defn sidebar []
   [:div
-   [:ul
-    [:a {:on-click #(re-frame/dispatch [:set-view "home"])} "Home"]
-    [:a {:on-click #(re-frame/dispatch [:set-view "about"])} "About Me"]
-    [:a {:on-click #(re-frame/dispatch [:set-view "contact"])} "Contact"]
-    [:a {:on-click #(re-frame/dispatch [:set-view "games"])} "Games"]
+   [:ul.sidebar
+    (make-link "Home")
+    (make-link "About")
+    (make-link "Contact")
+    (make-link "Games")
     [:a {:href "https://www.github.com/jonathan-rose"} "Git Hub"]
     ]])
-
-(defn home []
-  [:p "Home page"]
-  )
-
-(defn about []
-  [:p "About page"]
-  )
