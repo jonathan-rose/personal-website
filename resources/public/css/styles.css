@@ -1,21 +1,41 @@
-.main {
+#main {
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 
 .sidebar {
     display: flex;
     flex-direction: column;
-    width: 100px;
-    margin-right: 10px;
+    justify-content: center;
+    height: 75vh;
+    width: auto;
 }
 
-.sidebar a {
-    margin: 10px;
-    margin-left: 0px;
-    margin-right: 0px;
+.sidebar h1 {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar ul a {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .main-content {
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+#home h1 {
+    font-size: 32px;
 }

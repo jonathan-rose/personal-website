@@ -7,8 +7,9 @@
     [:a {:on-click #(re-frame/dispatch [:set-view string-name])} link-name]))
 
 (defn sidebar []
-  [:div
-   [:ul.sidebar
+  [:div.sidebar
+   [:h1 "Jonathan Rose"]
+   [:ul
     (make-link "Home")
     (make-link "About")
     (make-link "Contact")

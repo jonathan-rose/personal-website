@@ -6,7 +6,8 @@
    ))
 
 (defn home []
-   [:p "Home page"])
+  [:div#home
+   [:h1 "Hello, I'm Jon"]])
  
 (defn about []
    [:p "About page"])
@@ -19,7 +20,7 @@
 
 (defn main []
   (let [current-view @(re-frame/subscribe [:current-view])]
-    [:div.main
+    [:div#main
      [comps/sidebar]
      [:div.main-content (case current-view
                           "home" [home]
